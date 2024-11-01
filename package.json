@@ -2,14 +2,40 @@
   "name": "basicstarter",
   "version": "1.0.0",
   "description": "My attempt to mocking a boiler plait",
+  "type": "module",
   "main": "main.js",
   "scripts": {
+    "prestart": "babel-node BuildScripts/startMsg.js",
+    "start": "npm-run-all --parallel open:src",
+    "open:src": "babel-node BuildScripts/srcServer.js",
+    "localtunnel": "lt --port 3000 --subdomain busry",
+    "share": "npm-run-all --parallel open:src localtunnel",
+    "lint": "esw webpack.config.* src BuildScripts --color",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Busry",
   "license": "ISC",
   "devDependencies": {
+    "@babel/cli": "^7.25.9",
+    "@babel/core": "^7.26.0",
+    "@babel/node": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@eslint/js": "^9.14.0",
+    "babel-loader": "^9.2.1",
+    "chalk": "^5.3.0",
+    "css-loader": "^7.1.2",
+    "eslint": "^9.14.0",
+    "eslint-watch": "^8.0.0",
     "express": "^4.21.1",
-    "open": "^10.1.0"
+    "globals": "^15.11.0",
+    "npm-run-all": "^4.1.5",
+    "numeral": "^2.0.6",
+    "open": "^10.1.0",
+    "style-loader": "^4.0.0",
+    "ts-loader": "^9.5.1",
+    "typescript-eslint": "^8.12.2",
+    "webpack": "^5.95.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-middleware": "^7.4.2"
   }
 }
